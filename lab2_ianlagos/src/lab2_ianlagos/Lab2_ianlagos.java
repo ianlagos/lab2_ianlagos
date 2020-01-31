@@ -19,7 +19,7 @@ public class Lab2_ianlagos {
         char resp = 's';
         int cont = 0;
         ArrayList listaPersonajes = new ArrayList();
-
+        ArrayList<Personaje> lista_buena = new ArrayList();
         while (resp == 's' || resp == 's') {
             System.out.println("0 Salir");
             System.out.println("1 Crear Personaje");
@@ -119,12 +119,11 @@ public class Lab2_ianlagos {
                     listaPersonajes.add(cont + 2, "zebs");
                     listaPersonajes.add(cont + 2, "maridia");
                     //
-                    for (int i = 0; i < listaPersonajes.size(); i++) {
-                        System.out.println("personaje" + i);
+                    
                         for (Object o : listaPersonajes) {
                             System.out.println(o);
                         }
-                    }
+                    
 
                     break;
                 case 4:
@@ -175,11 +174,11 @@ public class Lab2_ianlagos {
     public static int HP(int pos, ArrayList lista) {
         int hp = 0;
 
-        if (lista(pos)= "mediano") {
+        if (((Personaje) lista.get(pos)).getClase().contains("mediano")) {
             return hp = 50 + rng.nextInt(60);
-        } else if (( lista.get(pos)).getClase() == "enano") {
+        } else if (((Personaje) lista.get(pos)).getClase().contains("enano")) {
             return hp = 80 + rng.nextInt(100);
-        } else if (((Personaje) lista.get(pos)).getClase() == "elfo") {
+        } else if (((Personaje) lista.get(pos)).getClase().contains("elfo")) {
             return hp = 50 + rng.nextInt(70);
         } else {
             return hp = 40 + rng.nextInt(75);
@@ -188,11 +187,11 @@ public class Lab2_ianlagos {
 
     public static int AC(int pos, ArrayList lista) {
         int ac = 0;
-        if (((Personaje) lista.get(pos)).getRaza() == "clerigo") {
+        if (((Personaje) lista.get(pos)).getRaza().contains("clerigo")) {
             return ac = 40;
-        } else if (((Personaje) lista.get(pos)).getRaza() == "barbaro") {
+        } else if (((Personaje) lista.get(pos)).getRaza().contains("barbaro")) {
             return ac = 65;
-        } else if (((Personaje) lista.get(pos)).getRaza() == "mago") {
+        } else if (((Personaje) lista.get(pos)).getRaza().contains("mago")) {
             return ac = 20;
         } else {
             return ac = 50;
