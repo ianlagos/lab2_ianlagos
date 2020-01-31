@@ -7,8 +7,8 @@ package lab2_ianlagos;
 
 import java.util.ArrayList;
 
-
 public class Personaje {
+
     private String clase;
     private String raza;
     private String nacionalidad;
@@ -16,9 +16,36 @@ public class Personaje {
     private int años;
     private String descripcion;
     private double peso;
-    private ArrayList lista = new ArrayList();
 
-    
+    private String nombre;
+
+    public Personaje() {
+    }
+
+    public Personaje(String clase, String raza, String nacionalidad, double estatura, int años, String descripcion, double peso, String nombre) {
+        this.clase = clase;
+        this.raza = raza;
+        this.nacionalidad = nacionalidad;
+        this.estatura = estatura;
+        this.años = años;
+        this.descripcion = descripcion;
+        this.peso = peso;
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Personaje{" + "clase=" + clase + ", raza=" + raza + ", nacionalidad=" + nacionalidad + ", descripcion=" + descripcion + ", nombre=" + nombre + '}';
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public double getPeso() {
         return peso;
     }
@@ -26,19 +53,7 @@ public class Personaje {
     public void setPeso(double peso) {
         this.peso = peso;
     }
-    
-    public Personaje(){
-    }
-    
-    public Personaje(String clase, String raza, String nacionalidad, double estatura, int años, String descripcion) {
-        this.clase = clase;
-        this.raza = raza;
-        this.nacionalidad = nacionalidad;
-        this.estatura = estatura;
-        this.años = años;
-        this.descripcion = descripcion;
-    }
-    
+
     public String getClase() {
         return clase;
     }
@@ -86,6 +101,5 @@ public class Personaje {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
+
 }
