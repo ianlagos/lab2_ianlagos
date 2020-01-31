@@ -13,6 +13,7 @@ public class Lab2_ianlagos {
 
     public static Scanner leer = new Scanner(System.in);
     public static Random rng = new Random();
+
     public static void main(String[] args) {
         // TODO code application logic here
         char resp = 's';
@@ -98,9 +99,13 @@ public class Lab2_ianlagos {
                     modificacion(perso_mod, listaPersonajes);
                     break;
                 case 3:
-                    for (Object o : listaPersonajes) {
-                        System.out.println(o);
+                    for (int i = 0; i < listaPersonajes.size(); i++) {
+                        System.out.println("primer personaje");
+                        for (Object o : listaPersonajes) {
+                            System.out.println(o);
+                        }
                     }
+
                     break;
                 case 4:
                     System.out.println("Que personaje desea eliminar");
@@ -108,7 +113,7 @@ public class Lab2_ianlagos {
                     listaPersonajes.remove(elim);
                     break;
                 case 5:
-                    combat();
+                    combat(listaPersonajes);
                     break;
                 default:
                     resp = 'n';
@@ -117,8 +122,9 @@ public class Lab2_ianlagos {
 
     }
 
-    public static void combat() {
-        HP();
+    public static void combat(ArrayList lista) {
+        int hp = HP(lista);
+
         AC();
         CS();
         DM();
@@ -126,15 +132,15 @@ public class Lab2_ianlagos {
     }
 
     public static int HP(ArrayList lista) {
-        int hp=0;
-        if (((Personaje)lista.get(0)).getClase()=="mediano") {
-            return hp=50 + rng.nextInt(60);
-        }else if (((Personaje)lista.get(0)).getClase()=="enano") {
-             return hp=80 + rng.nextInt(100);
-        }else if (((Personaje)lista.get(0)).getClase()=="elfo") {
-            return hp=50 + rng.nextInt(70);
-        }else{
-            return hp=40 + rng.nextInt(75);
+        int hp = 0;
+        if (((Personaje) lista.get(0)).getClase() == "mediano") {
+            return hp = 50 + rng.nextInt(60);
+        } else if (((Personaje) lista.get(0)).getClase() == "enano") {
+            return hp = 80 + rng.nextInt(100);
+        } else if (((Personaje) lista.get(0)).getClase() == "elfo") {
+            return hp = 50 + rng.nextInt(70);
+        } else {
+            return hp = 40 + rng.nextInt(75);
         }
     }
 
