@@ -18,6 +18,7 @@ public class Lab2_ianlagos {
         // TODO code application logic here
         char resp = 's';
         int cont = 0;
+
         ArrayList listaPersonajes = new ArrayList();
         ArrayList<Personaje> lista_buena = new ArrayList();
         while (resp == 's' || resp == 's') {
@@ -90,7 +91,7 @@ public class Lab2_ianlagos {
                         nacion = leer.next();
                     }
                     //
-                    
+                    lista_buena.add(new Personaje(clase, raza, nacion, estatura, edad, descrip, peso, nombre));
                     cont++;
                     break;
                 case 2:
@@ -99,31 +100,14 @@ public class Lab2_ianlagos {
                     modificacion(perso_mod, listaPersonajes);
                     break;
                 case 3:
-                    listaPersonajes.add(cont + 1, "mago");
-                    listaPersonajes.add(cont + 1, "juan");
-                    listaPersonajes.add(cont + 1, "humano");
-                    listaPersonajes.add(cont + 1, 1.68);
-                    listaPersonajes.add(cont + 1, 150);
-                    listaPersonajes.add(cont + 1, 88);
-                    listaPersonajes.add(cont + 1, "vende chiles");
-                    listaPersonajes.add(cont + 1, "norfair");
-                    listaPersonajes.add(cont + 1, "brinstat");
-                    //
-                    listaPersonajes.add(cont + 2, "picaro");
-                    listaPersonajes.add(cont + 2, "ricardo");
-                    listaPersonajes.add(cont + 2, "enano");
-                    listaPersonajes.add(cont + 2, 2.58);
-                    listaPersonajes.add(cont + 2, 350);
-                    listaPersonajes.add(cont + 2, 185);
-                    listaPersonajes.add(cont + 2, "YES");
-                    listaPersonajes.add(cont + 2, "zebs");
-                    listaPersonajes.add(cont + 2, "maridia");
-                    //
-                    
-                        for (Object o : listaPersonajes) {
-                            System.out.println(o);
-                        }
-                    
+                    lista_buena.add(new Personaje("mago", "humano", "norfair", 1.68,88, "vende chiles", 150, "juan"));
+                    lista_buena.add(new Personaje("picaro", "enano", "zebes", 2.58, 350, "YES", 185, "Ricardo"));
+                    lista_buena.add(new Personaje("barbaro","humano", "maridia", 1.50, 500, "es inutil", 158, "egroj"));
+                    lista_buena.add(new Personaje("clerigo", "elfo", "crateria", 1.70, 55, "es muy creido", 85, "pipe"));
+                    for (Object o : lista_buena) {
+                        System.out.println(o);
+                        System.out.println();
+                    }
 
                     break;
                 case 4:
@@ -133,7 +117,7 @@ public class Lab2_ianlagos {
                     break;
                 case 5:
 
-                    combat(listaPersonajes);
+                    combat(lista_buena);
                     break;
                 default:
                     resp = 'n';
@@ -143,8 +127,8 @@ public class Lab2_ianlagos {
     }
 
     public static void combat(ArrayList lista) {
-        int pos = 1 + rng.nextInt(4);
-        int pos2 = 1 + rng.nextInt(4);
+        int pos = 1 + rng.nextInt(3);
+        int pos2 = 1 + rng.nextInt(3);
         int hp = HP(pos, lista);
         int hp2 = HP(pos2, lista);
         int ac = AC(pos, lista);

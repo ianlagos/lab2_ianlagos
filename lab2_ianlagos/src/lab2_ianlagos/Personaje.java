@@ -16,9 +16,16 @@ public class Personaje {
     private int años;
     private String descripcion;
     private double peso;
-
     private String nombre;
+    private ArrayList listado = new ArrayList();
 
+    public ArrayList getListado() {
+        return listado;
+    }
+
+    public void setListado(ArrayList listado) {
+        this.listado = listado;
+    }
     public Personaje() {
     }
 
