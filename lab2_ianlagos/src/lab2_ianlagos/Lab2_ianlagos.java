@@ -46,14 +46,15 @@ public class Lab2_ianlagos {
                     }
                     System.out.println("clerigo, barbaro, mago o picaro");
                     System.out.print("Eliga su Clase: ");
-                    leer.next();
-                    String clase = leer.nextLine();
+                    String clase = leer.next();
+                    if (clase.contains("clerigo") || clase.contains("barbaro") || clase.contains("mago") || clase.contains("picaro")) {
 
-                    if (clase != "clerigo" || clase != "barbaro" || clase != "mago" || clase != "picaro") {
+                    } else {
                         System.out.println("usted no puede elejir esa clase");
                         System.out.print("Eliga su Clase: ");
                         clase = leer.next();
                     }
+
                     //
                     listaPersonajes.add(cont, clase);
                     System.out.println("Ingrese su nombre");
@@ -62,9 +63,10 @@ public class Lab2_ianlagos {
                     //
                     System.out.println("mediano, enano, elfo o humano");
                     System.out.print("ingrese raza: ");
-
                     String raza = leer.next();
-                    if (raza != "mediano" || raza != "enano" || raza != "elgo" || raza != "humano") {
+                    if (raza.contains("mediano") || raza.contains("enano") || raza.contains("elfo") || raza.contains("humano")) {
+
+                    } else {
                         System.out.println("no puede ser de esa raza");
                         System.out.print("ingrese raza:");
                         raza = leer.next();
@@ -83,6 +85,7 @@ public class Lab2_ianlagos {
                     listaPersonajes.add(cont, edad);
                     //
                     System.out.println("ingrese descripcion: ");
+                    leer.nextLine();
                     String descrip = leer.nextLine();
                     listaPersonajes.add(cont, descrip);
                     //
@@ -90,11 +93,14 @@ public class Lab2_ianlagos {
                     System.out.print("ingrese nacionalidad: ");
                     String nacion = leer.next();
                     //
-                    if (nacion != "norfair" || nacion != "brinstat" || nacion != "maridia" || nacion != "zebes" || nacion != "crateria") {
+                    if (nacion.contains("norfair") || nacion.contains("brinstatr") || nacion.contains("maridia") || nacion.contains("zebes") || nacion.contains("crateria")) {
+
+                    } else {
                         System.out.println("no puede ser de esa region: ");
                         System.out.print("ingrese nacionalidad: ");
                         nacion = leer.next();
                     }
+
                     //
                     lista_buena.add(new Personaje(clase, raza, nacion, estatura, edad, descrip, peso, nombre));
                     cont++;
@@ -118,7 +124,7 @@ public class Lab2_ianlagos {
                     lista_buena.remove(elim);
                     break;
                 case 5:
-
+                    System.out.println("no funcio");
                     break;
                 default:
                     resp = 'n';
