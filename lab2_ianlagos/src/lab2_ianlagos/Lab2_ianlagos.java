@@ -97,7 +97,7 @@ public class Lab2_ianlagos {
                 case 2:
                     System.out.println("que posicion de pesonaje desea modificar");
                     int perso_mod = leer.nextInt();
-                    modificacion(perso_mod, listaPersonajes);
+                    modificacion(perso_mod, lista_buena);
                     break;
                 case 3:
                     lista_buena.add(new Personaje("mago", "humano", "norfair", 1.68,88, "vende chiles", 150, "juan"));
@@ -117,7 +117,6 @@ public class Lab2_ianlagos {
                     break;
                 case 5:
 
-                    combat(lista_buena);
                     break;
                 default:
                     resp = 'n';
@@ -190,7 +189,7 @@ public class Lab2_ianlagos {
 
     }
 
-    public static void modificacion(int mod, ArrayList listaPersonajes) {
+    public static void modificacion(int mod, ArrayList lista_buena) {
         System.out.println("clerigo, barbaro, mago o picaro");
         System.out.print("Eliga su Clase: ");
         leer.next();
@@ -202,36 +201,33 @@ public class Lab2_ianlagos {
             clase = leer.next();
         }
         //
-        listaPersonajes.add(mod, clase);
+       
         System.out.println("Ingrese su nombre");
         String nombre = leer.next();
-        listaPersonajes.add(mod, nombre);
+        
         //
         System.out.println("mediano, enano, elfo o humano");
         System.out.print("ingrese raza: ");
-
         String raza = leer.next();
         if (raza != "mediano" || raza != "enano" || raza != "elgo" || raza != "humano") {
             System.out.println("no puede ser de esa raza");
             System.out.print("ingrese raza:");
             raza = leer.next();
         }
-        listaPersonajes.add(mod, raza);
+        
         System.out.println("ingrese estatura: ");
         double estatura = leer.nextDouble();
-        listaPersonajes.add(mod, estatura);
         //
         System.out.println("ingrese peso: ");
         double peso = leer.nextDouble();
-        listaPersonajes.add(mod, peso);
+        
         //
         System.out.println("ingrese edad: ");
         int edad = leer.nextInt();
-        listaPersonajes.add(mod, edad);
+       
         //
         System.out.println("ingrese descripcion: ");
-        String descrip = leer.next();
-        listaPersonajes.add(mod, descrip);
+        String descrip = leer.nextLine();
         //
         System.out.println("norfair ,brinstar , maridia, zebes o crateria");
         System.out.print("ingrese nacionalidad: ");
@@ -242,6 +238,7 @@ public class Lab2_ianlagos {
             System.out.print("ingrese nacionalidad: ");
             nacion = leer.next();
         }
-        listaPersonajes.add(mod, nacion);
+        
+        lista_buena.add(new Personaje(clase, raza, nacion, estatura, edad, descrip, peso, nombre));
     }
 }
