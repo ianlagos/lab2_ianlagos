@@ -19,6 +19,7 @@ public class Lab2_ianlagos {
         char resp = 's';
         int cont = 0;
         ArrayList listaPersonajes = new ArrayList();
+
         while (resp == 's' || resp == 's') {
             System.out.println("0 Salir");
             System.out.println("1 Crear Personaje");
@@ -76,7 +77,7 @@ public class Lab2_ianlagos {
                     listaPersonajes.add(cont, edad);
                     //
                     System.out.println("ingrese descripcion: ");
-                    String descrip = leer.next();
+                    String descrip = leer.nextLine();
                     listaPersonajes.add(cont, descrip);
                     //
                     System.out.println("norfair ,brinstar , maridia, zebes o crateria");
@@ -89,7 +90,25 @@ public class Lab2_ianlagos {
                         nacion = leer.next();
                     }
                     //
-                    listaPersonajes.add(cont, nacion);
+                    listaPersonajes.add(4, "mago");
+                    listaPersonajes.add(4, "juan");
+                    listaPersonajes.add(4, "humano");
+                    listaPersonajes.add(4, 1.68);
+                    listaPersonajes.add(4, 150);
+                    listaPersonajes.add(4, 88);
+                    listaPersonajes.add(4,"vende chiles");
+                    listaPersonajes.add(4, "norfair");
+                    listaPersonajes.add(4, "brinstat");
+                    //
+                    listaPersonajes.add(2, "picaro");
+                    listaPersonajes.add(4, "ricardo");
+                    listaPersonajes.add(4, "enano");
+                    listaPersonajes.add(4, 2.58);
+                    listaPersonajes.add(4, 350);
+                    listaPersonajes.add(4, 185);
+                    listaPersonajes.add(4,"YES");
+                    listaPersonajes.add(4, "zebs");
+                    listaPersonajes.add(4, "maridia");
 
                     cont++;
                     break;
@@ -123,29 +142,59 @@ public class Lab2_ianlagos {
     }
 
     public static void combat(ArrayList lista) {
-        int hp = HP(lista);
+        int pos = 1 + rng.nextInt(4);
+        int pos2 = 1 + rng.nextInt(4);
+        int hp = HP(pos, lista);
+        int hp2 = HP(pos2, lista);
+        int ac = AC(pos, lista);
+        int ac2 = AC(pos, lista);
+        int cont = 1;
+        while (hp > 0 && hp2 > 0) {
 
-        AC();
-        CS();
-        DM();
+            if (cont == 1) {
+                System.out.println("1= Atacar o 2=Defender");
+                System.out.print("elija:");
+                int atc_dfr = leer.nextInt();
+                if (atc_dfr == 2) {
+                    ac += 15;
+                    ac2 += 15;
+                } else {
 
+                }
+
+            } else {
+                cont = 2;
+            }
+            ac -= 15;
+            ac -= 15;
+        }
     }
 
-    public static int HP(ArrayList lista) {
+    public static int HP(int pos, ArrayList lista) {
         int hp = 0;
-        if (((Personaje) lista.get(0)).getClase() == "mediano") {
+
+        if (((Personaje) lista.get(pos)).getClase() == "mediano") {
             return hp = 50 + rng.nextInt(60);
-        } else if (((Personaje) lista.get(0)).getClase() == "enano") {
+        } else if (((Personaje) lista.get(pos)).getClase() == "enano") {
             return hp = 80 + rng.nextInt(100);
-        } else if (((Personaje) lista.get(0)).getClase() == "elfo") {
+        } else if (((Personaje) lista.get(pos)).getClase() == "elfo") {
             return hp = 50 + rng.nextInt(70);
         } else {
             return hp = 40 + rng.nextInt(75);
         }
     }
 
-    public static void AC() {
-
+    public static int AC(int pos, ArrayList lista) {
+        int ac = 0;
+        if (((Personaje) lista.get(pos)).getRaza() == "clerigo") {
+            return ac = 40;
+        } else if (((Personaje) lista.get(pos)).getRaza() == "barbaro") {
+            return ac = 65;
+        } else if (((Personaje) lista.get(pos)).getRaza() == "mago") {
+            return ac = 20;
+        } else {
+            return ac = 50;
+        }
     }
 
     public static void CS() {
