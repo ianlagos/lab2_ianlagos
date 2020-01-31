@@ -21,6 +21,10 @@ public class Lab2_ianlagos {
 
         ArrayList listaPersonajes = new ArrayList();
         ArrayList<Personaje> lista_buena = new ArrayList();
+        lista_buena.add(new Personaje("mago", "humano", "norfair", 1.68, 88, "vende chiles", 150, "juan"));
+        lista_buena.add(new Personaje("picaro", "enano", "zebes", 2.58, 350, "YES", 185, "Ricardo"));
+        lista_buena.add(new Personaje("barbaro", "humano", "maridia", 1.50, 500, "es inutil", 158, "egroj"));
+        lista_buena.add(new Personaje("clerigo", "elfo", "crateria", 1.70, 55, "es muy creido", 85, "pipe"));
         while (resp == 's' || resp == 's') {
             System.out.println("0 Salir");
             System.out.println("1 Crear Personaje");
@@ -30,6 +34,7 @@ public class Lab2_ianlagos {
             System.out.println("5 Combate");
             System.out.print("ingrese opcion");
             int opcion = leer.nextInt();
+
             switch (opcion) {
                 case 0:
                     System.exit(0);
@@ -100,10 +105,7 @@ public class Lab2_ianlagos {
                     modificacion(perso_mod, lista_buena);
                     break;
                 case 3:
-                    lista_buena.add(new Personaje("mago", "humano", "norfair", 1.68,88, "vende chiles", 150, "juan"));
-                    lista_buena.add(new Personaje("picaro", "enano", "zebes", 2.58, 350, "YES", 185, "Ricardo"));
-                    lista_buena.add(new Personaje("barbaro","humano", "maridia", 1.50, 500, "es inutil", 158, "egroj"));
-                    lista_buena.add(new Personaje("clerigo", "elfo", "crateria", 1.70, 55, "es muy creido", 85, "pipe"));
+
                     for (Object o : lista_buena) {
                         System.out.println(o);
                         System.out.println();
@@ -113,7 +115,7 @@ public class Lab2_ianlagos {
                 case 4:
                     System.out.println("Que personaje desea eliminar");
                     int elim = leer.nextInt();
-                    listaPersonajes.remove(elim);
+                    lista_buena.remove(elim);
                     break;
                 case 5:
 
@@ -201,10 +203,10 @@ public class Lab2_ianlagos {
             clase = leer.next();
         }
         //
-       
+
         System.out.println("Ingrese su nombre");
         String nombre = leer.next();
-        
+
         //
         System.out.println("mediano, enano, elfo o humano");
         System.out.print("ingrese raza: ");
@@ -214,17 +216,17 @@ public class Lab2_ianlagos {
             System.out.print("ingrese raza:");
             raza = leer.next();
         }
-        
+
         System.out.println("ingrese estatura: ");
         double estatura = leer.nextDouble();
         //
         System.out.println("ingrese peso: ");
         double peso = leer.nextDouble();
-        
+
         //
         System.out.println("ingrese edad: ");
         int edad = leer.nextInt();
-       
+
         //
         System.out.println("ingrese descripcion: ");
         String descrip = leer.nextLine();
@@ -238,7 +240,7 @@ public class Lab2_ianlagos {
             System.out.print("ingrese nacionalidad: ");
             nacion = leer.next();
         }
-        
+
         lista_buena.add(new Personaje(clase, raza, nacion, estatura, edad, descrip, peso, nombre));
     }
 }
