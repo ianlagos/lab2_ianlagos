@@ -90,26 +90,7 @@ public class Lab2_ianlagos {
                         nacion = leer.next();
                     }
                     //
-                    listaPersonajes.add(4, "mago");
-                    listaPersonajes.add(4, "juan");
-                    listaPersonajes.add(4, "humano");
-                    listaPersonajes.add(4, 1.68);
-                    listaPersonajes.add(4, 150);
-                    listaPersonajes.add(4, 88);
-                    listaPersonajes.add(4,"vende chiles");
-                    listaPersonajes.add(4, "norfair");
-                    listaPersonajes.add(4, "brinstat");
-                    //
-                    listaPersonajes.add(2, "picaro");
-                    listaPersonajes.add(4, "ricardo");
-                    listaPersonajes.add(4, "enano");
-                    listaPersonajes.add(4, 2.58);
-                    listaPersonajes.add(4, 350);
-                    listaPersonajes.add(4, 185);
-                    listaPersonajes.add(4,"YES");
-                    listaPersonajes.add(4, "zebs");
-                    listaPersonajes.add(4, "maridia");
-
+                    
                     cont++;
                     break;
                 case 2:
@@ -118,8 +99,28 @@ public class Lab2_ianlagos {
                     modificacion(perso_mod, listaPersonajes);
                     break;
                 case 3:
+                    listaPersonajes.add(cont + 1, "mago");
+                    listaPersonajes.add(cont + 1, "juan");
+                    listaPersonajes.add(cont + 1, "humano");
+                    listaPersonajes.add(cont + 1, 1.68);
+                    listaPersonajes.add(cont + 1, 150);
+                    listaPersonajes.add(cont + 1, 88);
+                    listaPersonajes.add(cont + 1, "vende chiles");
+                    listaPersonajes.add(cont + 1, "norfair");
+                    listaPersonajes.add(cont + 1, "brinstat");
+                    //
+                    listaPersonajes.add(cont + 2, "picaro");
+                    listaPersonajes.add(cont + 2, "ricardo");
+                    listaPersonajes.add(cont + 2, "enano");
+                    listaPersonajes.add(cont + 2, 2.58);
+                    listaPersonajes.add(cont + 2, 350);
+                    listaPersonajes.add(cont + 2, 185);
+                    listaPersonajes.add(cont + 2, "YES");
+                    listaPersonajes.add(cont + 2, "zebs");
+                    listaPersonajes.add(cont + 2, "maridia");
+                    //
                     for (int i = 0; i < listaPersonajes.size(); i++) {
-                        System.out.println("primer personaje");
+                        System.out.println("personaje" + i);
                         for (Object o : listaPersonajes) {
                             System.out.println(o);
                         }
@@ -132,6 +133,7 @@ public class Lab2_ianlagos {
                     listaPersonajes.remove(elim);
                     break;
                 case 5:
+
                     combat(listaPersonajes);
                     break;
                 default:
@@ -173,9 +175,9 @@ public class Lab2_ianlagos {
     public static int HP(int pos, ArrayList lista) {
         int hp = 0;
 
-        if (((Personaje) lista.get(pos)).getClase() == "mediano") {
+        if (lista(pos)= "mediano") {
             return hp = 50 + rng.nextInt(60);
-        } else if (((Personaje) lista.get(pos)).getClase() == "enano") {
+        } else if (( lista.get(pos)).getClase() == "enano") {
             return hp = 80 + rng.nextInt(100);
         } else if (((Personaje) lista.get(pos)).getClase() == "elfo") {
             return hp = 50 + rng.nextInt(70);
