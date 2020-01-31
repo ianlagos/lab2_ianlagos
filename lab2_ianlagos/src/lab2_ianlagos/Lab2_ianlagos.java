@@ -15,7 +15,7 @@ public class Lab2_ianlagos {
     public static void main(String[] args) {
         // TODO code application logic here
         char resp = 's';
-        int cont=0;
+        int cont = 0;
         ArrayList listaPersonajes = new ArrayList();
         while (resp == 's' || resp == 's') {
             System.out.println("0 Salir");
@@ -31,7 +31,7 @@ public class Lab2_ianlagos {
                     System.exit(0);
                     break;
                 case 1:
-                    if (cont>4) {
+                    if (cont > 4) {
                         System.out.println("no se pueden mas personajes");
                         break;
                     }
@@ -39,7 +39,7 @@ public class Lab2_ianlagos {
                     System.out.print("Eliga su Clase: ");
                     leer.next();
                     String clase = leer.nextLine();
-                    
+
                     if (clase != "clerigo" || clase != "barbaro" || clase != "mago" || clase != "picaro") {
                         System.out.println("usted no puede elejir esa clase");
                         System.out.print("Eliga su Clase: ");
@@ -53,7 +53,7 @@ public class Lab2_ianlagos {
                     //
                     System.out.println("mediano, enano, elfo o humano");
                     System.out.print("ingrese raza: ");
-                    
+
                     String raza = leer.next();
                     if (raza != "mediano" || raza != "enano" || raza != "elgo" || raza != "humano") {
                         System.out.println("no puede ser de esa raza");
@@ -88,10 +88,12 @@ public class Lab2_ianlagos {
                     }
                     //
                     listaPersonajes.add(cont, nacion);
-                    
+
                     cont++;
                     break;
                 case 2:
+                    System.out.println("que posicion de pesonaje desea modificar");
+                    int perso_mod = leer.nextInt();
 
                     break;
                 case 3:
@@ -105,7 +107,7 @@ public class Lab2_ianlagos {
                     listaPersonajes.remove(elim);
                     break;
                 case 5:
-
+                    combat();
                     break;
                 default:
                     resp = 'n';
@@ -114,16 +116,82 @@ public class Lab2_ianlagos {
 
     }
 
-    public static void HP(ArrayList list) {
-        
+    public static void combat() {
+        HP();
+        AC();
+        CS();
+        DM();
+
     }
-    public static void AC(){
-        
+
+    public static void HP() {
+
     }
-    public static void CS(){
-        
+
+    public static void AC() {
+
     }
-    public static void DM(){
-        
+
+    public static void CS() {
+
+    }
+
+    public static void DM() {
+
+    }
+
+    public static void modificacion(int mod, ArrayList listaPersonajes) {
+        System.out.println("clerigo, barbaro, mago o picaro");
+        System.out.print("Eliga su Clase: ");
+        leer.next();
+        String clase = leer.nextLine();
+
+        if (clase != "clerigo" || clase != "barbaro" || clase != "mago" || clase != "picaro") {
+            System.out.println("usted no puede elejir esa clase");
+            System.out.print("Eliga su Clase: ");
+            clase = leer.next();
+        }
+        //
+        listaPersonajes.add(mod, clase);
+        System.out.println("Ingrese su nombre");
+        String nombre = leer.next();
+        listaPersonajes.add(mod, nombre);
+        //
+        System.out.println("mediano, enano, elfo o humano");
+        System.out.print("ingrese raza: ");
+
+        String raza = leer.next();
+        if (raza != "mediano" || raza != "enano" || raza != "elgo" || raza != "humano") {
+            System.out.println("no puede ser de esa raza");
+            System.out.print("ingrese raza:");
+            raza = leer.next();
+        }
+        listaPersonajes.add(mod, raza);
+        System.out.println("ingrese estatura: ");
+        double estatura = leer.nextDouble();
+        listaPersonajes.add(mod, estatura);
+        //
+        System.out.println("ingrese peso: ");
+        double peso = leer.nextDouble();
+        listaPersonajes.add(mod, peso);
+        //
+        System.out.println("ingrese edad: ");
+        int edad = leer.nextInt();
+        listaPersonajes.add(mod, edad);
+        //
+        System.out.println("ingrese descripcion: ");
+        String descrip = leer.next();
+        listaPersonajes.add(mod, descrip);
+        //
+        System.out.println("norfair ,brinstar , maridia, zebes o crateria");
+        System.out.print("ingrese nacionalidad: ");
+        String nacion = leer.next();
+        //
+        if (nacion != "norfair" || nacion != "brinstat" || nacion != "maridia" || nacion != "zebes" || nacion != "crateria") {
+            System.out.println("no puede ser de esa region: ");
+            System.out.print("ingrese nacionalidad: ");
+            nacion = leer.next();
+        }
+        listaPersonajes.add(mod, nacion);
     }
 }
