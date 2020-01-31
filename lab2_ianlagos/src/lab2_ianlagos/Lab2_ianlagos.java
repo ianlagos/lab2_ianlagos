@@ -6,12 +6,13 @@
 package lab2_ianlagos;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Lab2_ianlagos {
 
     public static Scanner leer = new Scanner(System.in);
-
+    public static Random rng = new Random();
     public static void main(String[] args) {
         // TODO code application logic here
         char resp = 's';
@@ -94,7 +95,7 @@ public class Lab2_ianlagos {
                 case 2:
                     System.out.println("que posicion de pesonaje desea modificar");
                     int perso_mod = leer.nextInt();
-
+                    modificacion(perso_mod, listaPersonajes);
                     break;
                 case 3:
                     for (Object o : listaPersonajes) {
@@ -124,8 +125,17 @@ public class Lab2_ianlagos {
 
     }
 
-    public static void HP() {
-
+    public static int HP(ArrayList lista) {
+        int hp=0;
+        if (((Personaje)lista.get(0)).getClase()=="mediano") {
+            return hp=50 + rng.nextInt(60);
+        }else if (((Personaje)lista.get(0)).getClase()=="enano") {
+             return hp=80 + rng.nextInt(100);
+        }else if (((Personaje)lista.get(0)).getClase()=="elfo") {
+            return hp=50 + rng.nextInt(70);
+        }else{
+            return hp=40 + rng.nextInt(75);
+        }
     }
 
     public static void AC() {
